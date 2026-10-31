@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Idaho Hunting Forecast: Deer, Waterfowl, Turkey | Field Forecast</title>
+<meta name="description" content="Free hourly hunting forecast for Idaho: deer movement, waterfowl flights, turkey and more, with rut and migration timing estimates.">
+<link rel="canonical" href="https://example.com/idaho-hunting-forecast.html">
+<meta property="og:title" content="Idaho Hunting Forecast: Deer, Waterfowl, Turkey | Field Forecast"><meta property="og:description" content="Free hourly hunting forecast for Idaho: deer movement, waterfowl flights, turkey and more, with rut and migration timing estimates."><meta property="og:type" content="website"><meta property="og:url" content="https://example.com/idaho-hunting-forecast.html">
+<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#141b16"><link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<header class="top"><a href="index.html">Field Forecast</a><nav><a href="privacy.html">Privacy</a></nav></header>
+<h1>Idaho hunting forecast</h1>
+<p class="lede">Hourly activity scores for hunters in Idaho, with season timing estimates for deer, waterfowl and turkey.</p>
+
+<div class="panel">
+ <div class="row"><input id="q" placeholder="Town or city (e.g. Saratoga Springs)" aria-label="Location"><button class="go" id="s">Search</button><button id="g">Use my location</button></div>
+ <div id="results"></div>
+ <div id="msg"></div>
+</div>
+<div class="chips" id="chips" role="group" aria-label="Species"></div>
+<div class="tabs"><button id="t1" class="on">Forecast</button><button id="t2">Hunt log</button></div>
+
+<section id="v1">
+ <div class="panel"><label for="date" style="margin-top:0">Hunt date (forecast runs 15 days out)</label><input type="date" id="date" disabled></div>
+ <div id="out" hidden>
+  <div class="panel" id="sum"></div>
+  <div class="panel"><div class="mute" style="margin-bottom:6px" id="chartT"></div><div id="chart"></div></div>
+  <div class="panel" id="detail"></div>
+ </div>
+ <details class="panel"><summary>How the score works</summary><p id="about"></p></details>
+</section>
+
+<section id="v2" hidden>
+ <div class="panel">
+  <div class="mute" id="lloc"></div>
+  <label for="ld">Day</label><input type="date" id="ld">
+  <div id="pv" style="margin-top:10px"></div>
+  <div class="two"><div><label for="ls">Hunt start</label><input type="time" id="ls" value="06:00"></div><div><label for="le">Hunt end</label><input type="time" id="le" value="09:00"></div></div>
+  <label id="seenQ">Seen?</label>
+  <div class="row"><button type="button" id="yes">Yes</button><button type="button" id="no">No</button></div>
+  <div id="sights" hidden><label id="sightL">Sightings</label><div id="srows"></div><button type="button" id="addS">Add sighting</button></div>
+  <label for="lh">Harvested (optional)</label><input type="number" id="lh" min="0" max="99" inputmode="numeric">
+  <label for="ln">Notes</label><textarea id="ln" rows="3" placeholder="Stand or blind, wind direction, what you saw, hunting pressure..."></textarea>
+  <div class="row" style="margin-top:12px"><button class="go" id="save">Save hunt</button><button id="cancel" hidden>Cancel edit</button></div>
+  <div id="lmsg" class="mute" style="margin-top:6px"></div>
+ </div>
+ <div class="panel" id="ins" hidden></div>
+ <div id="list"></div>
+ <button id="exp" hidden>Export CSV (all species)</button>
+ <p class="mute">Your log is saved on this device only. Export the CSV now and then as a backup, since clearing browser data erases it.</p>
+</section>
+
+<div class="ad" data-slot="top" hidden></div>
+<section id="aff" class="panel" hidden></section>
+
+<article class="seo">
+<h2>Idaho season timing estimates</h2><p>At about 44.4 degrees north, Idaho falls where the model puts the deer rut close to the northern reference peak of Nov 12. These markers come from a latitude-based model and are not wildlife agency data. Elevation, local herds and weather shift real timing, and hunting seasons, bag limits and legal hours are set by the Idaho wildlife agency, so check their current regulations before you go.</p><table><tr><th>Season marker</th><th>Model estimate</th></tr><tr><td>Deer rut, seeking to peak breeding</td><td>Oct 31 to Nov 22</td></tr><tr><td>Waterfowl peak migration</td><td>Oct 10 to Nov 14</td></tr><tr><td>Spring turkey peak gobbling</td><td>Apr 20 to May 10</td></tr><tr><td>Elk peak rut (varies with elevation)</td><td>Sep 20 to Oct 7</td></tr></table><p>The forecast above starts at the middle of the state. Search your own town or tap Use my location for numbers at your stand.</p>
+<h2>How the forecast works</h2>
+<p>Each hour gets a score from 0 to 100. Light and time of day carry the most weight, followed by weather factors that differ by species: barometric pressure trend, temperature and cold fronts, wind, rain and cloud cover, moon phase, and a season calendar estimated from your latitude.</p>
+<p>Weather comes from the free Open-Meteo service for your exact location, so the numbers update as the forecast changes. The scores are rules of thumb drawn from hunting research and field reports. They are not a validated model, and nothing replaces local knowledge. Use the hunt log to compare the score with what you actually see.</p>
+<h2>Keep your own hunt log</h2>
+<p>Pick a day and the forecast numbers for it load automatically. Record when you hunted, whether you saw anything and when, and your notes. After a few hunts the log shows how your results line up with the scores. Your log stays on your device.</p>
+
+</article>
+
+<div class="ad" data-slot="bottom" hidden></div>
+
+<footer>
+ <p>Weather data by <a href="https://open-meteo.com/">Open-Meteo.com</a> (CC BY 4.0). Scores are estimates for planning only, built on rules of thumb rather than validated science. Always follow your state wildlife agency's regulations, seasons and legal hours. <a id="donate" hidden>Support this site</a></p>
+ <div class="states"><b>Forecasts by state</b><br><a href="alabama-hunting-forecast.html">Alabama</a> <a href="arizona-hunting-forecast.html">Arizona</a> <a href="arkansas-hunting-forecast.html">Arkansas</a> <a href="california-hunting-forecast.html">California</a> <a href="colorado-hunting-forecast.html">Colorado</a> <a href="connecticut-hunting-forecast.html">Connecticut</a> <a href="delaware-hunting-forecast.html">Delaware</a> <a href="florida-hunting-forecast.html">Florida</a> <a href="georgia-hunting-forecast.html">Georgia</a> <a href="idaho-hunting-forecast.html">Idaho</a> <a href="illinois-hunting-forecast.html">Illinois</a> <a href="indiana-hunting-forecast.html">Indiana</a> <a href="iowa-hunting-forecast.html">Iowa</a> <a href="kansas-hunting-forecast.html">Kansas</a> <a href="kentucky-hunting-forecast.html">Kentucky</a> <a href="louisiana-hunting-forecast.html">Louisiana</a> <a href="maine-hunting-forecast.html">Maine</a> <a href="maryland-hunting-forecast.html">Maryland</a> <a href="massachusetts-hunting-forecast.html">Massachusetts</a> <a href="michigan-hunting-forecast.html">Michigan</a> <a href="minnesota-hunting-forecast.html">Minnesota</a> <a href="mississippi-hunting-forecast.html">Mississippi</a> <a href="missouri-hunting-forecast.html">Missouri</a> <a href="montana-hunting-forecast.html">Montana</a> <a href="nebraska-hunting-forecast.html">Nebraska</a> <a href="nevada-hunting-forecast.html">Nevada</a> <a href="new-hampshire-hunting-forecast.html">New Hampshire</a> <a href="new-jersey-hunting-forecast.html">New Jersey</a> <a href="new-mexico-hunting-forecast.html">New Mexico</a> <a href="new-york-hunting-forecast.html">New York</a> <a href="north-carolina-hunting-forecast.html">North Carolina</a> <a href="north-dakota-hunting-forecast.html">North Dakota</a> <a href="ohio-hunting-forecast.html">Ohio</a> <a href="oklahoma-hunting-forecast.html">Oklahoma</a> <a href="oregon-hunting-forecast.html">Oregon</a> <a href="pennsylvania-hunting-forecast.html">Pennsylvania</a> <a href="rhode-island-hunting-forecast.html">Rhode Island</a> <a href="south-carolina-hunting-forecast.html">South Carolina</a> <a href="south-dakota-hunting-forecast.html">South Dakota</a> <a href="tennessee-hunting-forecast.html">Tennessee</a> <a href="texas-hunting-forecast.html">Texas</a> <a href="utah-hunting-forecast.html">Utah</a> <a href="vermont-hunting-forecast.html">Vermont</a> <a href="virginia-hunting-forecast.html">Virginia</a> <a href="washington-hunting-forecast.html">Washington</a> <a href="west-virginia-hunting-forecast.html">West Virginia</a> <a href="wisconsin-hunting-forecast.html">Wisconsin</a> <a href="wyoming-hunting-forecast.html">Wyoming</a></div>
+</footer>
+<div id="consent" hidden>
+ <div>This site can show ads that use cookies. Allow ad cookies? See the <a href="privacy.html">privacy page</a>.</div>
+ <div class="row" style="margin-top:8px"><button class="go" id="cOk">Allow</button><button id="cNo">No thanks</button></div>
+</div>
+<script src="config.js"></script>
+<script>window.PRESET={"name": "Idaho (state center)", "lat": 44.4, "lon": -114.6, "force": true, "sp0": "deer"};</script>
+<script src="app.js"></script>
+</body></html>
