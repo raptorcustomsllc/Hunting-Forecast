@@ -1,0 +1,14 @@
+{
+  "name": "Field Forecast",
+  "short_name": "Field Forecast",
+  "description": "Hourly hunting forecasts for deer, waterfowl, turkey, elk and upland birds, with a hunt log.",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#141b16",
+  "theme_color": "#141b16",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
